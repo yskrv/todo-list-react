@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --green: #61fd9e;
+  --yellow: #fed215;
+  --red: #E32636;
+  --green-hover: #3cdb79;
+  --bg: #fcfcfc;
+  --border: #d0d0d2;
+}
+
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a, img, em, strong,
+ol, ul, li,
+form, input, textarea,
+button, label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow: hidden;
+  background: var(--green);
+  height: 100vh;
+  font-family: 'Fira Code', monospace;
+}
+
+.container {
+  width: 1200px;
+  margin: 100px auto;
+}
+
+.tasks {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 24px 40px;
+  overflow: scroll;
+}
+
+.title {
+  font-size: 28px;
+  height: 32px;
+  font-weight: 700;
+}
+
+.form {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-input {
+  width: 320px;
+  padding: 12px 20px;
+  outline: none;
+  border: 1px solid var(--border);
+  margin-right: 20px;
+}
+
+.form-select {
+  border: none;
+  outline: none;
+  padding: 11px 20px;
+  border: 1px solid var(--border); 
+}
+
+.form-submit {
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  background: var(--green);
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.form-submit:hover {
+  cursor: pointer;
+  background: var(--green-hover);
+}
+
+.form-wrapper {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 24px 40px;
+  margin-bottom: 40px;
+}
+
+.tasks-item {
+  margin-top: 16px;
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tasks-item__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-item__name {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.tasks-item__priority {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.low {
+  color: var(--green)
+}
+
+.medium {
+  color: var(--yellow)
+}
+
+.high {
+  color: var(--red)
+}
+
+.tasks-item__part {
+  display: flex;
+  align-items: center;
+}
+
+.tasks-item__part:first-child {
+  justify-content: flex-start;
+}
+
+.tasks-item__part:last-child {
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.tasks-item__checkbox {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--green);
+  margin-right: 16px;
+}
+
+.tasks-item__checked {
+  opacity: 0.3;
+}
+
+.tasks-item__btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+.tasks-item__btn:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.tasks-item__btn-edit {
+  background: var(--yellow);
+}
+
+.tasks-item__btn-delete {
+  background: var(--red);
+}
+
+.tasks-item__btn-submit {
+  background: var(--green);
+}
+
+.tasks-item__btn svg {
+  color: var(--bg);
+}
+
+.tasks-item__input {
+  height: 32px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  font-weight: 700;
+  outline: none;
+}
+
+.tasks-item__select {
+  margin-top: 2px;
+  width: auto;
+  font-size: 13px; 
+  font-weight: 600; 
+  height: 18px;
+  outline: none;
+  padding-left: 10px;
+  border: 1px solid var(--border);
+}
+
+.loader-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 96px;
+  height: 96px;
+  border: 10px solid var(--green);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
